@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>AI-Resilient Assessments: A Faculty Guide</title>
+    <meta name="description" content="An interactive, self-guided tutorial for university faculty to redesign course assessments for the AI era.">
+    
+    <!-- Google Fonts: Lora (Headings), Inter (Body), Fira Code (Monospace) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Progress Scroll Bar -->
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- App Container -->
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>AI-Resilient Assessments</h2>
+                <p class="subtitle">Faculty Interactive Guide</p>
+                <div class="author-tag">By Sable Cantus, CISSP</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <button class="nav-item active" data-target="welcome-section" id="nav-welcome">
+                            <span class="num">0</span>
+                            <span class="text">Welcome & AI Primer</span>
+                            <span class="status-icon">✓</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-item" data-target="challenge-section" id="nav-challenge">
+                            <span class="num">1</span>
+                            <span class="text">The Core Challenge</span>
+                            <span class="status-icon">○</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-item" data-target="strategy-section" id="nav-strategies">
+                            <span class="num">2</span>
+                            <span class="text">Redesign Strategies</span>
+                            <span class="status-icon">○</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-item" data-target="matrix-section" id="nav-matrix">
+                            <span class="num">3</span>
+                            <span class="text">Assessment Shift Matrix</span>
+                            <span class="status-icon">○</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-item" data-target="redesigner-section" id="nav-redesigner">
+                            <span class="num">4</span>
+                            <span class="text">Syllabus Redesigner</span>
+                            <span class="status-icon">○</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-item" data-target="quiz-section" id="nav-quiz">
+                            <span class="num">5</span>
+                            <span class="text">Diagnostic Quiz</span>
+                            <span class="status-icon">○</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="reset-progress" class="reset-progress-btn" aria-label="Reset all progress checkmarks">
+                    🔄 Reset Progress
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content">
+            <!-- HEADER -->
+            <header class="content-header">
+                <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle navigation menu">☰</button>
+                <div class="header-title-wrapper">
+                    <h1>AI-Resilient Assessment Strategies</h1>
+                    <p class="header-subtitle">Computer Information Systems Department</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle-icon-btn" aria-label="Toggle dark mode">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon">🌙</span>
+                </button>
+            </header>
+
+            <!-- WELCOME & AI PRIMER SECTION -->
+            <section id="welcome-section" class="content-section active">
+                <div class="card hero-card">
+                    <span class="badge">Orientation</span>
+                    <h2>Welcome to the Self-Guided AI Redesign Tutorial</h2>
+                    <p class="lead">
+                        As artificial intelligence models become standard tools for students, traditional assessment methods (e.g., take-home essays, standard recall exams) are decreasing in efficacy for verifying actual student comprehension. 
+                    </p>
+                    <p>
+                        This interactive app will guide you through concrete, validated strategies to redesign your course assessments. The goal is simple: <strong>allow AI assistance as a productivity tool while requiring students to demonstrate verifiable mastery of the course material.</strong>
+                    </p>
+                </div>
+
+                <div class="grid-2col">
+                    <!-- Historical Context Card -->
+                    <div class="card">
+                        <h3>AI Then vs. AI Now</h3>
+                        <p>
+                            In <strong>2017</strong>, universities piloted early AI platforms like Georgia Tech's "Jill Watson" (a virtual teaching assistant answering forum questions) and Penn State's "First Class" (virtual classrooms for student-teachers). These systems used complex algorithms to spot patterns and provide automated feedback or tutoring.
+                        </p>
+                        <p>
+                            <strong>Today</strong>, generative AI models like ChatGPT, Claude, and Gemini have democratized instant text generation, code creation, and mathematical reasoning. Students no longer just get tutored by AI; they have access to an instant co-writer that can draft full assignments in seconds.
+                        </p>
+                    </div>
+
+                    <!-- AI Evolution Slider Card -->
+                    <div class="card">
+                        <h3>Interactive AI Capability Timeline</h3>
+                        <p class="small-text">Drag the slider to see how AI's role in college assignments has shifted over the last decade.</p>
+                        
+                        <div class="slider-widget">
+                            <div class="slider-labels">
+                                <span>2017 (Automated TA)</span>
+                                <span>2020 (Text Help)</span>
+                                <span>Present (Generative)</span>
+                            </div>
+                            <input type="range" id="ai-timeline-slider" min="1" max="3" value="1" step="1" aria-label="AI capability timeline">
+                            
+                            <div id="timeline-display" class="timeline-box">
+                                <h4 id="timeline-year">2017: AI as an Assistant</h4>
+                                <p id="timeline-desc">AI handles structured tasks: scheduling, virtual simulations, and TAs (e.g., Jill Watson) responding to repetitive FAQ forum posts. Students still write essays and coding projects themselves.</p>
+                                <div class="resilience-indicator">
+                                    <span>Traditional Assessment Vulnerability:</span>
+                                    <strong class="vuln-low" id="timeline-vuln">Low (10%)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-actions">
+                    <button class="btn btn-primary next-section-btn" data-next="challenge-section">Continue to The Core Challenge →</button>
+                </div>
+            </section>
+
+            <!-- THE CORE CHALLENGE SECTION -->
+            <section id="challenge-section" class="content-section">
+                <div class="card border-highlight warning">
+                    <h2>The Core Challenge</h2>
+                    <p class="lead">
+                        Why can't we just use AI detectors, or keep assignments the same? Let's unpack the reality of the situation.
+                    </p>
+                </div>
+
+                <div class="grid-2col">
+                    <div class="card">
+                        <h3>The Flaw of AI Detection</h3>
+                        <blockquote>
+                            "Attempting to use AI-detection software is statistically unreliable and frequently results in false positives."
+                        </blockquote>
+                        <p>
+                            AI detectors look for mathematical patterns in text. However, they are easily bypassed by paraphrasing tools, minor manual edits, or prompting techniques. Crucially, they introduce a high risk of false accusations, particularly for English Second Language (ESL) students whose writing styles are often flagged as "robotic".
+                        </p>
+                        <div class="alert alert-danger">
+                            <strong>Important:</strong> AI detection software is not a viable defense strategy. Redesigning the assessment architecture is the only statistically reliable path forward.
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Assessment Vulnerability Analyzer</h3>
+                        <p class="small-text">Select a traditional assignment type and modify its parameters to see how vulnerable it is to AI bypass, and what elements lower that vulnerability.</p>
+                        
+                        <div class="interactive-tool">
+                            <label for="vuln-assignment-select"><strong>Assignment Type:</strong></label>
+                            <select id="vuln-assignment-select">
+                                <option value="essay">Take-Home Essay (e.g., 5 pages on historical event)</option>
+                                <option value="exam">Multiple-Choice / Recall Exam (Online, open-web)</option>
+                                <option value="lit">Literature Review (Summarizing 5 papers)</option>
+                                <option value="code">Coding Project (Write a script in Python)</option>
+                            </select>
+
+                            <div class="checkbox-group">
+                                <p><strong>Redesign Parameters (Add these elements):</strong></p>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="param-logs"> Require Prompt Engineering Logs
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="param-oral"> Add a 5-min Oral Defense / Viva
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="param-local"> Require Local / Class-Specific Data
+                                </label>
+                            </div>
+
+                            <div class="vuln-meter-wrapper">
+                                <div class="meter-label">AI Vulnerability Score:</div>
+                                <div class="meter-bg">
+                                    <div id="vuln-meter-bar" style="width: 95%;"></div>
+                                </div>
+                                <div id="vuln-meter-text">95% (Highly Vulnerable)</div>
+                            </div>
+                            
+                            <p id="vuln-analysis-feedback" class="small-text text-muted">A standard take-home essay can be written by ChatGPT in 30 seconds. Without a process log or oral defense, there is no way to verify the student's own cognitive input.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary prev-section-btn" data-prev="welcome-section">← Back</button>
+                    <button class="btn btn-primary next-section-btn" data-next="strategy-section">Explore Redesign Strategies →</button>
+                </div>
+            </section>
+
+            <!-- STRATEGY WALKTHROUGH SECTION -->
+            <section id="strategy-section" class="content-section">
+                <div class="card">
+                    <h2>The Four Pillars of AI-Resilient Redesign</h2>
+                    <p class="lead">
+                        Instead of banning AI, we structure assignments so that AI can be used as a productivity aid, but the student's grade depends on elements AI cannot automate.
+                    </p>
+                </div>
+
+                <!-- Strategy Tabs -->
+                <div class="tab-container">
+                    <div class="tab-headers">
+                        <button class="tab-btn active" data-tab="strat1">1. Process-Based</button>
+                        <button class="tab-btn" data-tab="strat2">2. Verbal Defense</button>
+                        <button class="tab-btn" data-tab="strat3">3. Human-in-the-Loop</button>
+                        <button class="tab-btn" data-tab="strat4">4. Hyper-Local</button>
+                    </div>
+
+                    <div class="tab-content active" id="strat1">
+                        <div class="grid-2col">
+                            <div>
+                                <span class="badge badge-primary">Strategy 1</span>
+                                <h3>Process-Based Assessment ("Paper Trail")</h3>
+                                <p>Shifting the grading focus from the final product to the methodological workflow ensures students engage deeply with the material during the drafting phase.</p>
+                                <ul>
+                                    <li><strong>Prompt Engineering Logs:</strong> Require students to submit transcripts of their AI interactions. Grade prompt specificity and iterative refinement.</li>
+                                    <li><strong>Draft Iterations:</strong> Mandate multiple drafts with annotations detailing how the student manually modified AI-generated text to improve accuracy, tone, or nuance.</li>
+                                    <li><strong>Metacognitive Reflections:</strong> Require students to explain why they accepted or rejected specific AI outputs, demonstrating analytical audit capabilities.</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-box">
+                                <h4>Interactive Prompt Log Sandbox</h4>
+                                <p class="small-text">Click the refinement options below to see how a student turns a lazy, AI-cheatable prompt into a reflective, high-resilience prompt engineering log.</p>
+                                
+                                <div class="prompt-box">
+                                    <div class="prompt-header">Student Prompt Log:</div>
+                                    <div class="prompt-body" id="prompt-display">
+                                        "Write a 1000-word essay about photosynthesis."
+                                    </div>
+                                    <div class="prompt-ai-response" id="prompt-ai-display">
+                                        <strong>AI Response:</strong> [Generates a generic, standard essay that the student can copy and paste with zero effort. <strong>Resilience: Low</strong>]
+                                    </div>
+                                </div>
+                                
+                                <div class="prompt-controls">
+                                    <button class="btn btn-outline" id="btn-refine-role">1. Add Specific Role</button>
+                                    <button class="btn btn-outline" id="btn-refine-context">2. Add Textbook Constraints</button>
+                                    <button class="btn btn-outline" id="btn-refine-critique">3. Add Self-Critique Step</button>
+                                    <button class="btn btn-accent" id="btn-reset-prompt">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="strat2">
+                        <div class="grid-2col">
+                            <div>
+                                <span class="badge badge-primary">Strategy 2</span>
+                                <h3>Real-Time Verbal Defense ("Viva Voce")</h3>
+                                <p>Live, synchronous components remain the highest-fidelity method for verifying individual knowledge. When students defend their arguments live, AI cannot help them.</p>
+                                <ul>
+                                    <li><strong>Micro-Oral Exams:</strong> Implement a 5-to-10-minute targeted Q&A where the student defends the logic, sources, and conclusions of their submitted paper.</li>
+                                    <li><strong>In-Class Whiteboarding:</strong> Require students to map out core arguments or architectures live, answering spontaneous questions.</li>
+                                    <li><strong>Asynchronous Video Explanations:</strong> For larger classes, require an unedited 3-minute video where the student explains a core mechanism of their assignment without notes.</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-box">
+                                <h4>Time-Resource Calculator</h4>
+                                <p class="small-text">Worried about oral grading time? Adjust the parameters to see how a <strong>Micro-Oral (Viva Voce)</strong> or <strong>Asynchronous Video</strong> scales compared to traditional grading.</p>
+                                
+                                <div class="calculator-form">
+                                    <div class="calc-row">
+                                        <label for="calc-class-size">Class Size:</label>
+                                        <input type="range" id="calc-class-size" min="10" max="150" value="36" step="1">
+                                        <span id="calc-class-size-val">36 students</span>
+                                    </div>
+                                    
+                                    <div class="calc-row">
+                                        <label for="calc-defense-type">Defense Method:</label>
+                                        <select id="calc-defense-type">
+                                            <option value="micro-oral">Micro-Oral Exam (8 min/student live + 2 min prep)</option>
+                                            <option value="async-video">Asynchronous Video (3 min/student video + 2 min grade)</option>
+                                            <option value="traditional">Traditional Grading Only (15 min/student essay reading)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="calc-results">
+                                    <div class="calc-stat">
+                                        <span class="label">Total Grading Time:</span>
+                                        <strong id="calc-total-hours">5.0 hours</strong>
+                                    </div>
+                                    <div class="calc-stat">
+                                        <span class="label">Feasibility Level:</span>
+                                        <strong id="calc-feasibility" class="feasibility-high">Highly Feasible</strong>
+                                    </div>
+                                </div>
+                                <p id="calc-notes" class="small-text text-muted">For a class of 36, a 5-minute async video defense takes only 3.0 hours total, providing absolute verification with a minimal grading footprint.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="strat3">
+                        <div class="grid-2col">
+                            <div>
+                                <span class="badge badge-primary">Strategy 3</span>
+                                <h3>"Human-in-the-Loop" Critiques</h3>
+                                <p>This framework treats the AI as a flawed subordinate, forcing the student into a supervisory, critical role where they are graded on their expert oversight.</p>
+                                <ul>
+                                    <li><strong>The AI Audit:</strong> Provide students with an AI-generated essay containing subtle hallucinations, methodological errors, or weak arguments. Grade students on their ability to identify and correct these errors.</li>
+                                    <li><strong>Comparative Output Analysis:</strong> Have students generate two opposing AI responses to a complex prompt, then write an academic critique evaluating which response is more logically sound.</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-box">
+                                <h4>Interactive Challenge: "The AI Audit"</h4>
+                                <p class="small-text">Assume you are grading a student's audit. <strong>Find and click on the 3 errors</strong> in the AI-generated paragraph below. (Hint: look for fake citations, logical contradictions, and hallucinated historical facts).</p>
+                                
+                                <div class="audit-passage-box">
+                                    <p id="audit-passage">
+                                        In his 1915 paper on general relativity, Albert Einstein argued that gravity is not a force but a curvature of spacetime. To prove this, he cited the famous <span class="audit-word" data-error="hallucination">1912 solar eclipse measurements by Stephen Hawking</span>, which confirmed light bending. However, Einstein's theory completely <span class="audit-word" data-error="contradiction">contradicted his own equation E=mc²</span>, showing that energy and mass are unrelated. Despite this, scientists quickly adopted the model, as documented in <span class="audit-word" data-error="citation">Cantus & Sable (2024), "The Relativistic Fraud," published in the Journal of Astrological Alchemy</span>.
+                                    </p>
+                                </div>
+                                
+                                <div class="audit-scorecard">
+                                    <span>Errors Found: <strong id="audit-score">0 / 3</strong></span>
+                                    <button class="btn btn-outline btn-xs" id="btn-reset-audit">Reset Challenge</button>
+                                </div>
+                                <div id="audit-feedback" class="audit-feedback-box">
+                                    Click on the words you believe are incorrect to analyze them.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="strat4">
+                        <div class="grid-2col">
+                            <div>
+                                <span class="badge badge-primary">Strategy 4</span>
+                                <h3>Hyper-Local & Contextual Integration</h3>
+                                <p>Require information that is highly specific, recently generated, or isolated to the physical classroom environment. AI cannot synthesize what it has not experienced or what is not in its training data.</p>
+                                <ul>
+                                    <li><strong>Class-Specific Synthesis:</strong> Require assignments to explicitly integrate points made during a specific lecture, a debate between classmates, or insights from a recent guest speaker.</li>
+                                    <li><strong>Primary Data Collection:</strong> Require the integration of primary data gathered by the student (e.g., a local interview, an on-campus survey, physical lab results) into the theoretical framework.</li>
+                                </ul>
+                            </div>
+                            <div class="interactive-box">
+                                <h4>Resilience Assessment Builder</h4>
+                                <p class="small-text">Check the variables you will integrate into your assignment. Watch how each local context variable shields your assignment from generic AI solutions.</p>
+                                
+                                <div class="builder-inputs">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="resilience-check" data-val="15">
+                                        <span>Reference details from guest speaker on <strong>Oct 12th</strong></span>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="resilience-check" data-val="25">
+                                        <span>Integrate data from <strong>student-conducted campus survey</strong></span>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="resilience-check" data-val="20">
+                                        <span>Synthesize debate arguments from <strong>last Tuesday's lecture</strong></span>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="resilience-check" data-val="30">
+                                        <span>Require student's own <strong>physical experiment or local interview</strong></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="resilience-meter-container">
+                                    <div class="meter-label">AI Resilience Rating:</div>
+                                    <div class="resilience-value" id="resilience-rating-label">Low (Generic)</div>
+                                    <div class="meter-bg">
+                                        <div id="resilience-meter-bar" style="width: 10%;"></div>
+                                    </div>
+                                    <div class="resilience-feedback" id="resilience-feedback-text">
+                                        Without contextual constraints, AI can write this entire assignment instantly.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary prev-section-btn" data-prev="challenge-section">← Back</button>
+                    <button class="btn btn-primary next-section-btn" data-next="matrix-section">View Shift Matrix →</button>
+                </div>
+            </section>
+
+            <!-- SHIFT MATRIX SECTION -->
+            <section id="matrix-section" class="content-section">
+                <div class="card">
+                    <h2>Assessment Shift Matrix</h2>
+                    <p class="lead">A summary of how traditional assessments can be structurally updated. Click on each comparison to toggle between a brief overview and a detailed implementation plan.</p>
+                </div>
+
+                <!-- Matrix Controls -->
+                <div class="matrix-toggle-bar">
+                    <button class="btn btn-primary toggle-btn active" id="btn-view-brief">Brief Comparison</button>
+                    <button class="btn btn-outline toggle-btn" id="btn-view-detailed">Detailed Comparison</button>
+                </div>
+
+                <!-- Matrix Container -->
+                <div class="matrix-container" id="matrix-container">
+                    <!-- Row 1: Essay -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional</span>
+                            <h4>Standard Take-Home Essay</h4>
+                            <p class="brief-text">Write a 5-page analysis on a historical event or literature concept.</p>
+                            <div class="detailed-text hidden">
+                                <h5>Vulnerability Explanation</h5>
+                                <p>AI models excel at generating structured, grammatically correct essays on general historical or literary topics based on their training data. Students can paste prompts and turn in the output with zero cognitive processing.</p>
+                            </div>
+                        </div>
+                        <div class="matrix-arrow">➔</div>
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">AI-Resilient Alternative</span>
+                            <h4>Annotated Bibliography & Oral Defense</h4>
+                            <p class="brief-text">Submit an annotated bibliography of sources plus a 5-minute live Q&A session.</p>
+                            <div class="detailed-text hidden">
+                                <h5>How to Implement</h5>
+                                <ol>
+                                    <li>Students submit an annotated list of 5 peer-reviewed sources.</li>
+                                    <li>For the annotations, students must write a paragraph explaining how they verified the source's validity (AI cannot check physical library databases as reliably).</li>
+                                    <li>In a 5-minute oral slot (or async video), students must answer: "Which of your sources had the weakest argument, and why did you include it anyway?"</li>
+                                </ol>
+                                <p class="small-text font-mono">Resilience Metric: 90% (Defense verifies reading)</p>
+                            </div>
+                        </div>
+                        <div class="matrix-cell justification-col">
+                            <span class="label-category">Pedagogical Justification</span>
+                            <p>Verifies deep reading of source material and spontaneous articulation of concepts. AI cannot represent the student's voice in live verbal communication.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: MC Exam -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional</span>
+                            <h4>Multiple-Choice / Recall Exam</h4>
+                            <p class="brief-text">A 50-question quiz testing terms, definitions, and simple math formulas.</p>
+                            <div class="detailed-text hidden">
+                                <h5>Vulnerability Explanation</h5>
+                                <p>Online multiple-choice quizzes are easily bypassed. Students can copy/paste questions into split screens, use browser extensions, or ask AI. Even in-class closed-book exams test rote memorization rather than deep understanding.</p>
+                            </div>
+                        </div>
+                        <div class="matrix-arrow">➔</div>
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">AI-Resilient Alternative</span>
+                            <h4>In-Class Open-Resource Case Study</h4>
+                            <p class="brief-text">A live, timed case-study analysis where students are allowed to use AI as a tool.</p>
+                            <div class="detailed-text hidden">
+                                <h5>How to Implement</h5>
+                                <ol>
+                                    <li>Provide a highly complex, messy scenario (e.g., a business operations breakdown).</li>
+                                    <li>Allow students access to the web, textbook, and AI tools.</li>
+                                    <li>Ask questions requiring evaluation: "Explain how you used AI to generate a solution. Which part of the AI's proposal was impractical for this specific business, and how did you correct it?"</li>
+                                </ol>
+                                <p class="small-text font-mono">Resilience Metric: 85% (AI handles base task, student evaluates)</p>
+                            </div>
+                        </div>
+                        <div class="matrix-cell justification-col">
+                            <span class="label-category">Pedagogical Justification</span>
+                            <p>Tests high-level application of theory under a time constraint, rather than rote memorization. Treats AI as a resource, grading the audit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Lit Review -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional</span>
+                            <h4>Literature Review</h4>
+                            <p class="brief-text">Summarize the findings of existing scientific papers in a thematic review.</p>
+                            <div class="detailed-text hidden">
+                                <h5>Vulnerability Explanation</h5>
+                                <p>AI models can ingest PDFs or look up common academic topics to synthesize arguments and format APA/MLA bibliographies in seconds, often hallucinating citations that look extremely realistic.</p>
+                            </div>
+                        </div>
+                        <div class="matrix-arrow">➔</div>
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">AI-Resilient Alternative</span>
+                            <h4>"The AI Audit" (Correcting AI Output)</h4>
+                            <p class="brief-text">Provide an AI-generated review with errors. Grade students on finding and correcting them.</p>
+                            <div class="detailed-text hidden">
+                                <h5>How to Implement</h5>
+                                <ol>
+                                    <li>Use ChatGPT to draft a literature review on your topic.</li>
+                                    <li>Seed the draft with 3-4 subtle factual, citation, or logical errors.</li>
+                                    <li>Task: "Find the errors, explain why they are incorrect using physical library texts, and write a correct analysis with proper academic proof."</li>
+                                </ol>
+                                <p class="small-text font-mono">Resilience Metric: 95% (Auditing requires expertise)</p>
+                            </div>
+                        </div>
+                        <div class="matrix-cell justification-col">
+                            <span class="label-category">Pedagogical Justification</span>
+                            <p>Forces students into an evaluative, supervisory role requiring high-level critical thinking and rigorous fact-checking.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Coding -->
+                    <div class="matrix-row">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional</span>
+                            <h4>Coding Project / Lab Report</h4>
+                            <p class="brief-text">Submit a Python script or write up a standardized laboratory analysis report.</p>
+                            <div class="detailed-text hidden">
+                                <h5>Vulnerability Explanation</h5>
+                                <p>Copilot, Claude, and GPT-4 generate functional code instantly for standard programming problems. Standard lab reports follow predictable structures that AI can populate given sample inputs.</p>
+                            </div>
+                        </div>
+                        <div class="matrix-arrow">➔</div>
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">AI-Resilient Alternative</span>
+                            <h4>Live Code Walkthrough / Peer Review</h4>
+                            <p class="brief-text">Submit the code/report, but grade is based on a live explanation of code lines.</p>
+                            <div class="detailed-text hidden">
+                                <h5>How to Implement</h5>
+                                <ol>
+                                    <li>Allow full AI coding support.</li>
+                                    <li>Grading: Student sits with the instructor or TA, who points to 3 lines of code: "What does this variable do here? If we change it to X, what happens?"</li>
+                                    <li>If the student cannot explain what their code does, they receive a zero, regardless of if the code works.</li>
+                                </ol>
+                                <p class="small-text font-mono">Resilience Metric: 98% (Ensures code comprehension)</p>
+                            </div>
+                        </div>
+                        <div class="matrix-cell justification-col">
+                            <span class="label-category">Pedagogical Justification</span>
+                            <p>Proves the student can read, debug, and explain the architecture of the submitted work, treating code as an asset to defend.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary prev-section-btn" data-prev="strategy-section">← Back</button>
+                    <button class="btn btn-primary next-section-btn" data-next="redesigner-section">Syllabus Redesigner Sandbox →</button>
+                </div>
+            </section>
+
+            <!-- SYLLABUS REDESIGNER SECTION -->
+            <section id="redesigner-section" class="content-section">
+                <div class="card">
+                    <h2>Syllabus Redesigner Sandbox</h2>
+                    <p class="lead">Select your current traditional assignment parameters to generate an AI-Resilient Redesign blueprint that you can download or copy-paste directly into your syllabus.</p>
+                </div>
+
+                <div class="grid-2col">
+                    <div class="card">
+                        <h3>1. Design Parameters</h3>
+                        <form id="redesigner-form">
+                            <div class="form-group">
+                                <label for="redesign-name">Assignment Name:</label>
+                                <input type="text" id="redesign-name" placeholder="e.g., Final Research Essay" value="History 101 Term Paper">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="redesign-type">Original Traditional Format:</label>
+                                <select id="redesign-type">
+                                    <option value="essay">Take-Home Essay / Research Paper</option>
+                                    <option value="recall">Multiple Choice / Rote Memorization Quiz</option>
+                                    <option value="lit">Literature Review / Paper Synthesis</option>
+                                    <option value="code">Coding Project / Numerical Lab Report</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="redesign-strategy">Preferred Resilience Pillar:</label>
+                                <select id="redesign-strategy">
+                                    <option value="process">Strategy 1: Process-Based (Prompt logs, reflection)</option>
+                                    <option value="verbal">Strategy 2: Verbal Defense (Micro-oral, async video)</option>
+                                    <option value="audit">Strategy 3: AI Audit (Fact-check & correct AI)</option>
+                                    <option value="local">Strategy 4: Local Context (Classroom debates, surveys)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="redesign-size">Approximate Class Size:</label>
+                                <select id="redesign-size">
+                                    <option value="small">Small (&lt; 30 students)</option>
+                                    <option value="medium" selected>Medium (30 - 80 students)</option>
+                                    <option value="large">Large (&gt; 80 students)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Generate Redesign Plan</button>
+                        </form>
+                    </div>
+
+                    <div class="card bg-contrast">
+                        <h3>2. Your Redesign Blueprint</h3>
+                        <p class="small-text">Copy the template below to paste into your syllabus or assignment guidelines.</p>
+                        
+                        <div class="blueprint-box">
+                            <pre><code id="blueprint-code" class="language-markdown"># AI-Resilient Assignment Redesign
+Please fill out the form on the left and click "Generate Redesign Plan" to render your blueprint here.</code></pre>
+                        </div>
+                        <div class="blueprint-actions">
+                            <button class="btn btn-secondary btn-sm" id="btn-copy-blueprint">📋 Copy Blueprint</button>
+                            <span id="copy-toast" class="toast hidden">Copied to clipboard!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary prev-section-btn" data-prev="matrix-section">← Back</button>
+                    <button class="btn btn-primary next-section-btn" data-next="quiz-section">Take the Diagnostic Quiz →</button>
+                </div>
+            </section>
+
+            <!-- DIAGNOSTIC QUIZ SECTION -->
+            <section id="quiz-section" class="content-section">
+                <div class="card">
+                    <h2>Faculty Self-Diagnostic Quiz</h2>
+                    <p class="lead">Test your understanding of AI-Resilient Assessment design. Complete this quiz to obtain your completion badge!</p>
+                </div>
+
+                <div class="card quiz-card" id="quiz-interactive-card">
+                    <div class="quiz-progress">
+                        <span>Question <strong id="quiz-q-num">1</strong> of 5</span>
+                        <div class="quiz-progress-bar-bg">
+                            <div id="quiz-progress-bar" style="width: 20%;"></div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-question-container">
+                        <h3 id="quiz-question-text">Loading question...</h3>
+                        <div class="quiz-options" id="quiz-options-container">
+                            <!-- Options will be injected by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="btn btn-primary hidden" id="quiz-next-btn">Next Question ➔</button>
+                        <div id="quiz-feedback-box" class="quiz-feedback hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Completion Screen (hidden by default) -->
+                <div class="card success-card hidden" id="quiz-success-card">
+                    <span class="emoji-badge">🎓</span>
+                    <h2>Assessment Redesign Certified!</h2>
+                    <p class="lead">You have successfully completed the AI-Resilient Assessment course.</p>
+                    <div class="completion-details">
+                        <p><strong>Your Score:</strong> <span id="quiz-final-score">5/5</span></p>
+                        <p><strong>Badge Issued To:</strong> CIS Faculty Member</p>
+                        <p><strong>Methodological Guide:</strong> Sable Cantus, CISSP</p>
+                    </div>
+                    <button class="btn btn-accent" id="btn-restart-quiz">Retake Quiz</button>
+                    <button class="btn btn-outline" id="btn-restart-tutorial">Restart Guide</button>
+                </div>
+
+                <div class="section-actions">
+                    <button class="btn btn-secondary prev-section-btn" data-prev="redesigner-section">← Back</button>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="app-footer">
+                <p>© 2026 Sable Cantus, CISSP | Computer Information Systems Department.</p>
+                <p class="small-text">Built to introduce faculty to the core principles of AI resilience. Adapt and share under Creative Commons BY-NC-ND.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JS Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
