@@ -7,7 +7,7 @@ An interactive, self-guided web application designed to introduce university fac
 > [!NOTE]
 > ### 🚀 Live Website
 > This project is live on GitHub Pages! You can view and interact with the study site here:
-> **[sc137.github.io/AI-Resilient-Assessments](https://sc137.github.io/AI-Resilient-Assessments/)**
+> **[sc137.github.io/AI_Resilient_Assessments](https://sc137.github.io/AI_Resilient_Assessments/)**
 
 ---
 
