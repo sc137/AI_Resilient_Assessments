@@ -635,7 +635,7 @@ Please fill out the form on the left and click "Generate Redesign Plan" to rende
             <!-- DIAGNOSTIC QUIZ SECTION -->
             <section id="quiz-section" class="content-section">
                 <div class="card">
-                    <h2>Faculty Self-Diagnostic Quiz</h2>
+                    <h2>Self-Diagnostic Quiz</h2>
                     <p class="lead">Test your understanding of AI-Resilient Assessment design. Complete this quiz to obtain your completion badge!</p>
                 </div>
 
@@ -663,15 +663,37 @@ Please fill out the form on the left and click "Generate Redesign Plan" to rende
                 <!-- Completion Screen (hidden by default) -->
                 <div class="card success-card hidden" id="quiz-success-card">
                     <span class="emoji-badge">🎓</span>
-                    <h2>Assessment Redesign Certified!</h2>
-                    <p class="lead">You have successfully completed the AI-Resilient Assessment course.</p>
-                    <div class="completion-details">
-                        <p><strong>Your Score:</strong> <span id="quiz-final-score">5/5</span></p>
-                        <p><strong>Badge Issued To:</strong> CIS Faculty Member</p>
-                        <p><strong>Methodological Guide:</strong> <a href="https://www.cantus.us/msac" target="_blank" rel="noopener noreferrer">Sable Cantus, CISSP</a></p>
+                    <h2>Building AI Resilient Assessments</h2>
+                    <p class="lead">You have successfully completed the AI Resilient Assessments micro-course.</p>
+                    <div class="cert-input-wrapper">
+                        <label for="cert-user-name"><strong>Enter Your Name for the Certificate:</strong></label>
+                        <input type="text" id="cert-user-name" placeholder="Enter Your Name" value="">
                     </div>
-                    <button class="btn btn-accent" id="btn-restart-quiz">Retake Quiz</button>
-                    <button class="btn btn-outline" id="btn-restart-tutorial">Restart Guide</button>
+
+                    <div class="completion-details">
+                        <p><strong>Badge Issued To:</strong> <span id="quiz-badge-name">Enter Your Name</span></p>
+                        <p><strong>Awarded:</strong> <span id="quiz-cert-date">-</span></p>
+                    </div>
+                    <div class="cert-actions">
+                        <button class="btn btn-primary" id="btn-print-cert">🖨️ Print Certificate</button>
+                        <button class="btn btn-accent" id="btn-restart-quiz">Retake Quiz</button>
+                        <button class="btn btn-outline" id="btn-restart-tutorial">Restart Guide</button>
+                    </div>
+                </div>
+
+                <!-- Fail Screen (hidden by default) -->
+                <div class="card fail-card hidden" id="quiz-fail-card">
+                    <span class="emoji-badge">❌</span>
+                    <h2>Certification Not Complete</h2>
+                    <p class="lead">To earn your certification badge, you must answer all 5 questions correctly.</p>
+                    <div class="completion-details">
+                        <p><strong>Your Score:</strong> <span id="quiz-fail-score">0/5</span></p>
+                        <p><strong>Required Score:</strong> 5 / 5 (100%)</p>
+                    </div>
+                    <div class="cert-actions">
+                        <button class="btn btn-accent" id="btn-restart-quiz-fail">Retake Quiz</button>
+                        <button class="btn btn-outline" id="btn-restart-tutorial-fail">Restart Guide</button>
+                    </div>
                 </div>
 
                 <div class="section-actions">

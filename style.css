@@ -1184,6 +1184,18 @@ input[type="range"] {
   background: linear-gradient(135deg, var(--card-bg) 0%, var(--success-muted) 100%);
 }
 
+.fail-card {
+  max-width: 600px;
+  margin: var(--spacing-xl) auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  border: 2px solid var(--danger-color);
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--danger-muted) 100%);
+}
+
 .emoji-badge {
   font-size: 4rem;
   line-height: 1;
@@ -1205,6 +1217,33 @@ input[type="range"] {
   font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
+}
+
+.cert-input-wrapper {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  text-align: left;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cert-input-wrapper input {
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  transition: border-color var(--transition-fast);
+}
+
+.cert-input-wrapper input:focus {
+  border-color: var(--success-color);
 }
 
 .app-footer {
@@ -1250,5 +1289,56 @@ input[type="range"] {
 
   .header-title-wrapper h1 {
     font-size: 1.5rem;
+  }
+}
+
+.cert-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+@media print {
+  /* Hide all elements on the page */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Show only the success card certificate and its contents */
+  #quiz-success-card,
+  #quiz-success-card * {
+    visibility: visible;
+  }
+  
+  #quiz-success-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: 650px;
+    max-width: 100%;
+    border: 2px solid var(--success-color) !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    padding: 40px !important;
+    border-radius: var(--radius-md) !important;
+    margin: 0 !important;
+  }
+
+  /* Force background colors to print */
+  .completion-details {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide print buttons and inputs on the printed output */
+  .cert-input-wrapper,
+  .cert-actions {
+    display: none !important;
   }
 }

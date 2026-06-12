@@ -188,9 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizFeedbackBox = document.getElementById('quiz-feedback-box');
   const quizInteractiveCard = document.getElementById('quiz-interactive-card');
   const quizSuccessCard = document.getElementById('quiz-success-card');
-  const quizFinalScore = document.getElementById('quiz-final-score');
   const btnRestartQuiz = document.getElementById('btn-restart-quiz');
   const btnRestartTutorial = document.getElementById('btn-restart-tutorial');
+  const certUserNameInput = document.getElementById('cert-user-name');
+  const quizBadgeName = document.getElementById('quiz-badge-name');
+  const btnPrintCert = document.getElementById('btn-print-cert');
+  const quizFailCard = document.getElementById('quiz-fail-card');
+  const quizFailScore = document.getElementById('quiz-fail-score');
+  const btnRestartQuizFail = document.getElementById('btn-restart-quiz-fail');
+  const btnRestartTutorialFail = document.getElementById('btn-restart-tutorial-fail');
 
   // ==========================================================================
   // INITIALIZATION & THEME FUNCTIONALITY
@@ -825,13 +831,27 @@ To complete this analysis, your project must integrate specific real-time variab
 
   function showQuizCompletion() {
     quizInteractiveCard.classList.add('hidden');
-    quizSuccessCard.classList.remove('hidden');
-    quizFinalScore.textContent = `${appState.quizScore} / ${quizQuestions.length}`;
+    if (appState.quizScore === 5) {
+      quizSuccessCard.classList.remove('hidden');
+      quizFailCard.classList.add('hidden');
+      
+      const quizCertDate = document.getElementById('quiz-cert-date');
+      if (quizCertDate) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        quizCertDate.textContent = new Date().toLocaleDateString('en-US', options);
+      }
+    } else {
+      quizFailCard.classList.remove('hidden');
+      quizSuccessCard.classList.add('hidden');
+      quizFailScore.textContent = `${appState.quizScore} / ${quizQuestions.length}`;
+    }
   }
 
   btnRestartQuiz.addEventListener('click', () => {
     appState.currentQuizIndex = 0;
     appState.quizScore = 0;
+    if (certUserNameInput) certUserNameInput.value = '';
+    if (quizBadgeName) quizBadgeName.textContent = 'Enter Your Name';
     quizSuccessCard.classList.add('hidden');
     quizInteractiveCard.classList.remove('hidden');
     renderQuizQuestion();
@@ -840,11 +860,47 @@ To complete this analysis, your project must integrate specific real-time variab
   btnRestartTutorial.addEventListener('click', () => {
     appState.currentQuizIndex = 0;
     appState.quizScore = 0;
+    if (certUserNameInput) certUserNameInput.value = '';
+    if (quizBadgeName) quizBadgeName.textContent = 'Enter Your Name';
     // Keep progress checkmarks but go back to welcome
     quizSuccessCard.classList.add('hidden');
     quizInteractiveCard.classList.remove('hidden');
     navigateTo('welcome-section');
   });
+
+  if (btnRestartQuizFail) {
+    btnRestartQuizFail.addEventListener('click', () => {
+      appState.currentQuizIndex = 0;
+      appState.quizScore = 0;
+      quizFailCard.classList.add('hidden');
+      quizInteractiveCard.classList.remove('hidden');
+      renderQuizQuestion();
+    });
+  }
+
+  if (btnRestartTutorialFail) {
+    btnRestartTutorialFail.addEventListener('click', () => {
+      appState.currentQuizIndex = 0;
+      appState.quizScore = 0;
+      quizFailCard.classList.add('hidden');
+      quizInteractiveCard.classList.remove('hidden');
+      navigateTo('welcome-section');
+    });
+  }
+
+  // Certificate Name Input Listener
+  if (certUserNameInput && quizBadgeName) {
+    certUserNameInput.addEventListener('input', (e) => {
+      quizBadgeName.textContent = e.target.value || 'Enter Your Name';
+    });
+  }
+
+  // Print Certificate Button Listener
+  if (btnPrintCert) {
+    btnPrintCert.addEventListener('click', () => {
+      window.print();
+    });
+  }
 
   // Reset Progress Button listener
   const resetProgressBtn = document.getElementById('reset-progress');
@@ -853,6 +909,19 @@ To complete this analysis, your project must integrate specific real-time variab
       if (confirm('Are you sure you want to reset all your progress checkmarks?')) {
         appState.visitedSections = new Set(['welcome-section']);
         appState.activeSection = 'welcome-section';
+        
+        // Reset quiz state parameters
+        appState.currentQuizIndex = 0;
+        appState.quizScore = 0;
+        if (certUserNameInput) certUserNameInput.value = '';
+        if (quizBadgeName) quizBadgeName.textContent = 'Enter Your Name';
+        
+        // Restore quiz cards default states
+        if (quizSuccessCard) quizSuccessCard.classList.add('hidden');
+        if (quizFailCard) quizFailCard.classList.add('hidden');
+        if (quizInteractiveCard) quizInteractiveCard.classList.remove('hidden');
+        renderQuizQuestion();
+
         try {
           localStorage.setItem('visitedSections', JSON.stringify(['welcome-section']));
           localStorage.setItem('activeSection', 'welcome-section');
