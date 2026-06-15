@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>AI-Resilient Assessment Case Studies</title>
+    <meta name="description" content="Interactive case studies for applying AI-resilient assessment design strategies.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=case-studies-3">
+</head>
+<body class="case-page">
+    <div id="progress-bar-container">
+        <div id="progress-bar" style="width: 100%;"></div>
+    </div>
+
+    <main class="case-study-app">
+        <header class="case-topbar">
+            <a class="btn btn-secondary btn-sm" href="index.html">Back to Guide</a>
+            <div class="case-topbar-title">
+                <h1>AI-Resilient Assessment Case Studies</h1>
+                <p class="header-subtitle">Apply the four redesign methods to concrete assignment examples.</p>
+            </div>
+            <button id="theme-toggle" class="theme-toggle-icon-btn" aria-label="Toggle dark mode">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </header>
+
+        <section class="card hero-card case-hero">
+            <span class="badge">Practicum</span>
+            <p class="lead">
+                Each case begins with an older assessment pattern and then converts it into an AI-resilient version. Use the controls to compare designs, check the resilience features, and copy a draft prompt for your own course materials.
+            </p>
+        </section>
+
+        <section class="case-shell">
+            <nav class="case-picker" aria-label="Case study navigation">
+                <button class="case-nav-btn active" data-case="case-1">
+                    <span class="num">1</span>
+                    <span>
+                        <strong>Process-Based</strong>
+                    </span>
+                </button>
+                <button class="case-nav-btn" data-case="case-2">
+                    <span class="num">2</span>
+                    <span>
+                        <strong>Verbal Defense</strong>
+                    </span>
+                </button>
+                <button class="case-nav-btn" data-case="case-3">
+                    <span class="num">3</span>
+                    <span>
+                        <strong>Human-in-the-Loop</strong>
+                    </span>
+                </button>
+                <button class="case-nav-btn" data-case="case-4">
+                    <span class="num">4</span>
+                    <span>
+                        <strong>Hyper-Local</strong>
+                    </span>
+                </button>
+            </nav>
+
+            <div class="case-stage">
+                <article class="case-study-panel active" id="case-1" data-copy-target="copy-case-1">
+                    <div class="case-heading">
+                        <h2>Case Study: Module Concepts</h2>
+                        <p>Students prove their thinking process and connect a technical concept to their own device.</p>
+                    </div>
+
+                    <div class="case-toggle-bar" role="group" aria-label="View traditional or resilient version">
+                        <button class="btn btn-accent case-view-btn active" data-view="old">Traditional</button>
+                        <button class="btn btn-outline case-view-btn" data-view="new">AI-Resilient Update</button>
+                    </div>
+
+                    <div class="case-version old active">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional Assessment</span>
+                            <h3>Fill in the Blank</h3>
+                            <p>Students answer a recall-style question such as:</p>
+                            <pre><code>My IPv4 address is: ________________</code></pre>
+                            <p>This checks whether the student can copy a value, but it does not verify understanding or connect the concept to their own computing environment.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-version new">
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">Resilient Update</span>
+                            <h3>Define, Locate, Document, Reflect</h3>
+                            <p>Students define an IP address in their own words, explain how it affects their device on a network, and include a screenshot showing their local IP address.</p>
+                            <ul>
+                                <li>Define <strong>IP address</strong> in your own words.</li>
+                                <li>Explain how the address helps the device communicate on a local network.</li>
+                                <li>Show a screenshot of the student's current local IP address with any sensitive details hidden.</li>
+                                <li>Submit a short process note describing where they found the address and what they checked before submitting.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="case-activity-grid">
+                        <div class="interactive-box">
+                            <h3>Apply the Method</h3>
+                            <p class="small-text">Check each feature that the redesigned assignment requires.</p>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student explains the concept in their own words.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student includes personal device evidence.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student documents the steps used to find the evidence.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student reflects on what the evidence proves.</label>
+                            <div class="resilience-meter-container">
+                                <div class="meter-label">Resilience Features Present:</div>
+                                <div class="resilience-value case-rating">0%</div>
+                                <div class="meter-bg"><div class="case-meter-bar"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box">
+                            <h3>Reflection Questions</h3>
+                            <details open>
+                                <summary>What does your IP address allow your device to do?</summary>
+                                <p>Connect the address to communication, routing, and identifying the device on the local network.</p>
+                            </details>
+                            <details>
+                                <summary>What could AI explain generally, but not prove for you?</summary>
+                                <p>AI can define IP addressing, but it cannot prove what address appeared on the student's own device at the time of the assignment.</p>
+                            </details>
+                            <details>
+                                <summary>What did the screenshot verify?</summary>
+                                <p>It verifies that the student performed the local lookup and can connect the course concept to their own network environment.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-box case-copy-box">
+                        <pre><code id="copy-case-1">Assignment Prompt:
+Define what an IP address is in your own words. Explain how your local IP address affects your device when it communicates on a network. Then locate your current local IP address, take a screenshot, and add a short process note explaining where you found it and what the screenshot proves.
+
+Reflection Questions:
+- What does your IP address allow your device to do?
+- What could AI explain generally, but not prove for you?
+- What did the screenshot verify?</code></pre>
+                    </div>
+                    <button class="btn btn-secondary btn-sm copy-case-btn">Copy Assignment Prompt</button>
+                    <span class="toast hidden">Copied to clipboard.</span>
+                </article>
+
+                <article class="case-study-panel" id="case-2" data-copy-target="copy-case-2">
+                    <div class="case-heading">
+                        <h2>Case Study: Python Mini Project</h2>
+                        <p>Students may use AI coding help, but they must prove they understand the program they submit.</p>
+                    </div>
+
+                    <div class="case-toggle-bar" role="group" aria-label="View traditional or resilient version">
+                        <button class="btn btn-accent case-view-btn active" data-view="old">Traditional</button>
+                        <button class="btn btn-outline case-view-btn" data-view="new">AI-Resilient Update</button>
+                    </div>
+
+                    <div class="case-version old active">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional Assessment</span>
+                            <h3>Submit a Working Script</h3>
+                            <p>Students submit a Python file that converts a temperature, calculates a total, or prints formatted output.</p>
+                            <pre><code>Write a Python script that converts Fahrenheit to Celsius.</code></pre>
+                            <p>Modern AI tools can generate a correct small script instantly. A working file alone does not show whether the student can read, modify, or explain the code.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-version new">
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">Resilient Update</span>
+                            <h3>Code Submission + 3-Minute Explanation</h3>
+                            <p>Students submit a small Python program and an unedited 3-minute video explaining how it works.</p>
+                            <ul>
+                                <li>Build a script that asks for a network speed in Mbps and estimates download time for a file size.</li>
+                                <li>Include a screenshot showing the program running with two different inputs.</li>
+                                <li>In a 3-minute video, explain one variable, one calculation, and one change they would make if the file size were entered in gigabytes instead of megabytes.</li>
+                                <li>AI assistance is allowed, but students must be able to defend the code.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="case-activity-grid">
+                        <div class="interactive-box">
+                            <h3>Apply the Method</h3>
+                            <p class="small-text">Check each feature that makes the programming project defensible.</p>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="20"> Student submits runnable code.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="20"> Student shows their own test output.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="30"> Student explains specific variables and logic verbally.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="30"> Student answers a small modification question.</label>
+                            <div class="resilience-meter-container">
+                                <div class="meter-label">Resilience Features Present:</div>
+                                <div class="resilience-value case-rating">0%</div>
+                                <div class="meter-bg"><div class="case-meter-bar"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box">
+                            <h3>Reflection Questions</h3>
+                            <details open>
+                                <summary>Which line of code is most important to the calculation?</summary>
+                                <p>Students should identify the formula line and explain how input values affect the result.</p>
+                            </details>
+                            <details>
+                                <summary>What would change if the user entered gigabytes?</summary>
+                                <p>The student should describe the unit conversion and where it belongs in the program.</p>
+                            </details>
+                            <details>
+                                <summary>What can the video reveal that the code file cannot?</summary>
+                                <p>It reveals whether the student can explain, troubleshoot, and modify the submitted work.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-box case-copy-box">
+                        <pre><code id="copy-case-2">Assignment Prompt:
+Create a Python script that asks the user for a file size in megabytes and a network speed in Mbps, then estimates the download time. Submit your .py file, a screenshot showing two successful test runs, and an unedited 3-minute video explaining one variable, one calculation, and how you would modify the script if file size were entered in gigabytes.
+
+Reflection Questions:
+- Which line of code is most important to the calculation?
+- What would change if the user entered gigabytes?
+- What can the video reveal that the code file cannot?</code></pre>
+                    </div>
+                    <button class="btn btn-secondary btn-sm copy-case-btn">Copy Assignment Prompt</button>
+                    <span class="toast hidden">Copied to clipboard.</span>
+                </article>
+
+                <article class="case-study-panel" id="case-3" data-copy-target="copy-case-3">
+                    <div class="case-heading">
+                        <h2>Case Study: Network Explanation Audit</h2>
+                        <p>Students act as reviewers who must catch and correct flawed AI-generated technical explanations.</p>
+                    </div>
+
+                    <div class="case-toggle-bar" role="group" aria-label="View traditional or resilient version">
+                        <button class="btn btn-accent case-view-btn active" data-view="old">Traditional</button>
+                        <button class="btn btn-outline case-view-btn" data-view="new">AI-Resilient Update</button>
+                    </div>
+
+                    <div class="case-version old active">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional Assessment</span>
+                            <h3>Definitions Paragraph</h3>
+                            <p>Students write a paragraph defining public IP address, private IP address, subnet mask, default gateway, and DNS server.</p>
+                            <p>This is easy for AI to generate and hard to authenticate because the final paragraph may look polished without student understanding.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-version new">
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">Resilient Update</span>
+                            <h3>Audit a Flawed AI Explanation</h3>
+                            <p>Students receive a short AI-generated explanation containing planted errors. They must identify, correct, and justify each correction using course materials.</p>
+                            <div class="audit-passage-box">
+                                <p>
+                                    "A <button class="audit-chip" data-answer="error">192.168.x.x address is a public internet address</button> assigned by your ISP. A subnet mask <button class="audit-chip" data-answer="error">encrypts local traffic</button>, while the default gateway <button class="audit-chip" data-answer="error">translates website names into IP addresses</button>."
+                                </p>
+                            </div>
+                            <p class="small-text">Click the suspicious claims above to model the student audit process.</p>
+                            <div class="audit-feedback-box case-audit-feedback">Find the three technical errors.</div>
+                        </div>
+                    </div>
+
+                    <div class="case-activity-grid">
+                        <div class="interactive-box">
+                            <h3>Apply the Method</h3>
+                            <p class="small-text">Check each feature required by a strong AI-audit assignment.</p>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> AI output contains seeded, realistic errors.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student marks exact claims, not just whole paragraphs.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student verifies corrections using course sources.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student rewrites the explanation accurately.</label>
+                            <div class="resilience-meter-container">
+                                <div class="meter-label">Resilience Features Present:</div>
+                                <div class="resilience-value case-rating">0%</div>
+                                <div class="meter-bg"><div class="case-meter-bar"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box">
+                            <h3>Reflection Questions</h3>
+                            <details open>
+                                <summary>Which error looked most believable?</summary>
+                                <p>Students should explain why a wrong claim sounded plausible and how they verified it.</p>
+                            </details>
+                            <details>
+                                <summary>What source confirmed your correction?</summary>
+                                <p>Students should cite course notes, textbook pages, or lab instructions instead of relying on another AI answer.</p>
+                            </details>
+                            <details>
+                                <summary>How does auditing differ from writing from scratch?</summary>
+                                <p>Auditing makes the student responsible for judgment, verification, and correction.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-box case-copy-box">
+                        <pre><code id="copy-case-3">Assignment Prompt:
+Review the provided AI-generated explanation of IP addressing, subnet masks, default gateways, and DNS. Mark at least three incorrect or misleading claims, explain why each claim is wrong using course materials, and rewrite the passage correctly in your own words.
+
+Reflection Questions:
+- Which error looked most believable?
+- What source confirmed your correction?
+- How does auditing differ from writing from scratch?</code></pre>
+                    </div>
+                    <button class="btn btn-secondary btn-sm copy-case-btn">Copy Assignment Prompt</button>
+                    <span class="toast hidden">Copied to clipboard.</span>
+                </article>
+
+                <article class="case-study-panel" id="case-4" data-copy-target="copy-case-4">
+                    <div class="case-heading">
+                        <h2>Case Study: Wi-Fi Troubleshooting</h2>
+                        <p>Students document a real connection context that AI cannot know without their local evidence.</p>
+                    </div>
+
+                    <div class="case-toggle-bar" role="group" aria-label="View traditional or resilient version">
+                        <button class="btn btn-accent case-view-btn active" data-view="old">Traditional</button>
+                        <button class="btn btn-outline case-view-btn" data-view="new">AI-Resilient Update</button>
+                    </div>
+
+                    <div class="case-version old active">
+                        <div class="matrix-cell traditional-col">
+                            <span class="label-category">Traditional Assessment</span>
+                            <h3>Common Wi-Fi Problems Worksheet</h3>
+                            <p>Students list possible reasons Wi-Fi might not work: weak signal, wrong password, router problem, no internet service, or DNS issue.</p>
+                            <p>The answers are useful, but generic. AI can produce a complete troubleshooting list without any student touching a device.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-version new">
+                        <div class="matrix-cell resilient-col">
+                            <span class="label-category">Resilient Update</span>
+                            <h3>Local Wi-Fi Evidence Walkthrough</h3>
+                            <p>Students document a real or simulated troubleshooting process on a device they use.</p>
+                            <ul>
+                                <li>Show the Wi-Fi connection status with private information hidden when needed.</li>
+                                <li>Show the local IP address assigned while connected to Wi-Fi.</li>
+                                <li>Run one connectivity test: default gateway ping, browser test, or OS network diagnostic.</li>
+                                <li>Explain what they would check next if Wi-Fi showed connected but webpages did not load.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="case-activity-grid">
+                        <div class="interactive-box">
+                            <h3>Apply the Method</h3>
+                            <p class="small-text">Check each local constraint that makes the assignment hard to fake with generic AI text.</p>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student uses their own Wi-Fi or lab environment.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student includes current connection evidence.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student performs a real troubleshooting test.</label>
+                            <label class="checkbox-container"><input type="checkbox" class="case-check" data-points="25"> Student connects evidence to class troubleshooting steps.</label>
+                            <div class="resilience-meter-container">
+                                <div class="meter-label">Resilience Features Present:</div>
+                                <div class="resilience-value case-rating">0%</div>
+                                <div class="meter-bg"><div class="case-meter-bar"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box">
+                            <h3>Reflection Questions</h3>
+                            <details open>
+                                <summary>What proved that the device was connected to Wi-Fi?</summary>
+                                <p>Students should point to connection status, SSID context, IP assignment, or operating system network details.</p>
+                            </details>
+                            <details>
+                                <summary>What proved whether internet access was working?</summary>
+                                <p>Students should connect the evidence to a browser test, ping result, diagnostic result, or gateway behavior.</p>
+                            </details>
+                            <details>
+                                <summary>What could AI describe, but not verify?</summary>
+                                <p>AI can describe Wi-Fi troubleshooting, but it cannot verify the student's exact device, network state, and test results.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-box case-copy-box">
+                        <pre><code id="copy-case-4">Assignment Prompt:
+Document a Wi-Fi troubleshooting check on a device you use. Include evidence of the Wi-Fi connection, your local IP address, and one connectivity test. Then explain what each piece of evidence shows and what you would check next if Wi-Fi appeared connected but webpages did not load.
+
+Reflection Questions:
+- What proved that the device was connected to Wi-Fi?
+- What proved whether internet access was working?
+- What could AI describe, but not verify?</code></pre>
+                    </div>
+                    <button class="btn btn-secondary btn-sm copy-case-btn">Copy Assignment Prompt</button>
+                    <span class="toast hidden">Copied to clipboard.</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="case-studies.js?v=case-studies-3"></script>
+</body>
+</html>

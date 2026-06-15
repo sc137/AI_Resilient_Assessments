@@ -21,17 +21,20 @@ An interactive, self-guided web application designed to introduce university fac
   4. *Hyper-Local Checklist*: A checkbox meter showing how classroom debates and on-campus data increase AI resilience.
 - **Shift Matrix Toggle**: A side-by-side comparison of traditional assessments against resilient alternatives, offering both brief summaries and detailed implementation step-by-steps.
 - **Syllabus Redesigner**: A sandbox generator form that renders a copy-pasteable markdown redesign proposal based on course parameters.
+- **Interactive Case Studies Companion**: A linked page with four applied examples that contrast older assessment styles with AI-resilient redesigns across process logs, verbal defense, AI audit, and hyper-local evidence.
 - **Self-Check Diagnostic Quiz**: A 5-question review to certify understanding and issue a completion badge.
 
 ---
 
 ## 📐 Project Structure
 - `index.html` — Layout grid, sidebar navigation, widgets, and form structures.
+- `case-studies.html` — Companion case-study application for applying the four redesign methods.
 - `style.css` — Responsive design stylesheet with HSL colors, glassmorphism, and user-preferred typography:
   - **Lora** for headings
   - **Inter** for body text and interface
   - **Fira Code** for preformatted code blocks
 - `app.js` — Client-side state routing, interactive slider behaviors, audit triggers, and state managers.
+- `case-studies.js` — Case-study page interactions, toggles, checklist meters, audit chips, theme handling, and copy-prompt fallback.
 - `AI_Resilient_Assessment_Strategies.pptx` — The original presentation deck.
 - `AI_Resilient Assessment Strategies_ Faculty Handout.docx` — The companion faculty guide document.
 - `AI in Teaching and Learning.pdf` — The original EDUCAUSE 7 Things You Should Know background article.
