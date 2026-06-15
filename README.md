@@ -39,6 +39,12 @@ Each practicum case contrasts a traditional assessment with an AI-resilient upda
 
 ---
 
+## 🏅 Completion Badge
+
+The guide includes a five-question diagnostic quiz. Faculty who answer all questions correctly receive an on-screen completion badge for **Building AI Resilient Assessments**, with an optional name field and print-friendly certificate view.
+
+---
+
 ## 📐 Project Structure
 - `index.html` — Layout grid, sidebar navigation, widgets, and form structures.
 - `case-studies.html` — Companion case-study application for applying the four redesign methods.
@@ -51,22 +57,6 @@ Each practicum case contrasts a traditional assessment with an AI-resilient upda
 - `AI_Resilient_Assessment_Strategies.pptx` — The original presentation deck.
 - `AI_Resilient Assessment Strategies_ Faculty Handout.docx` — The companion faculty guide document.
 - `AI in Teaching and Learning.pdf` — The original EDUCAUSE 7 Things You Should Know background article.
-
----
-
-## 🚀 How to Run Locally
-
-You can launch a local web server to run the application using Python:
-
-1. Open a terminal in the project directory:
-   ```bash
-   cd /path/to/AI-Resilient-Assessments
-   ```
-2. Run a simple HTTP server:
-   ```bash
-   python3 -m http.server 8000
-   ```
-3. Open your web browser and go to `http://localhost:8000`.
 
 ---
 
