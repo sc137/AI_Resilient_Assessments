@@ -26,6 +26,19 @@ An interactive, self-guided web application designed to introduce university fac
 
 ---
 
+## 🧪 Case Studies Practicum
+
+The **Case Studies Practicum** is a companion page linked from the main education guide. It helps faculty apply the four AI-resilient redesign methods to concrete assignment examples:
+
+- **Process-Based**: Module concepts and local IP address evidence.
+- **Verbal Defense**: A small Python project with a 3-minute explanation.
+- **Human-in-the-Loop**: An AI-generated network explanation audit.
+- **Hyper-Local**: Wi-Fi troubleshooting with local device evidence.
+
+Each practicum case contrasts a traditional assessment with an AI-resilient update, includes interactive resilience checks, and provides a copy-ready assignment prompt with reflection questions.
+
+---
+
 ## 📐 Project Structure
 - `index.html` — Layout grid, sidebar navigation, widgets, and form structures.
 - `case-studies.html` — Companion case-study application for applying the four redesign methods.
